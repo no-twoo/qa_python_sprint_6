@@ -2,9 +2,6 @@ from selenium.webdriver.common.by import By
 
 
 class TestOrderLocators:
-    create_order_button_header = [By.XPATH, ".//div[contains(@class, 'Header_Nav')]/button[text()='Заказать']"]
-    create_order_button_footer = [By.XPATH, ".//div[contains(@class, 'Home_FinishButton')]/button[text()='Заказать']"]
-
     search_input_name = [By.XPATH, ".//*[@placeholder='* Имя']"]
     search_input_surname = [By.XPATH, ".//*[@placeholder='* Фамилия']"]
     search_input_address = [By.XPATH, ".//*[@placeholder='* Адрес: куда привезти заказ']"]
@@ -26,3 +23,6 @@ class TestOrderLocators:
     search_button_yes = [By.XPATH, ".//button[text()='Да']"]
 
     search_button_completed = [By.XPATH, ".//button[text()='Посмотреть статус']"]
+
+    search_button_scooter = [By.XPATH, ".//a[contains(@class, 'Header_LogoScooter')]"]
+    search_main_page = [By.XPATH, ".//*[text()='Привезём его прямо к вашей двери,']"]
