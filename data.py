@@ -34,3 +34,6 @@ answer_8 = 'Да, обязательно. Всем самокатов! И Мос
 #url страниц
 main_page_url = 'https://qa-scooter.praktikum-services.ru/'
 order_page_url = 'https://qa-scooter.praktikum-services.ru/order'
+
+#текст с главной страницы Самоката
+actual_text = 'Привезём его прямо к вашей двери,\nа когда накатаетесь — заберём'

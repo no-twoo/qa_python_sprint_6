@@ -16,8 +16,7 @@ class TestCreateOrder:
         ]
     )
     def test_create_order(self, driver, name, surname, address, phone_number, comment):
-        driver.get(order_page_url)
-        create_order = OrderPageScooter(driver)
+        create_order = OrderPageScooter(driver, order_page_url)
         create_order.check_personal_form(name, surname, address, phone_number)
         create_order.check_scooter_form(comment)
         create_order.check_submit_button_yes()
@@ -27,8 +26,7 @@ class TestCreateOrder:
     @allure.title('Проверка редиректа на главную страницу Самоката')
     @allure.description('Тест проверяет, что значение возвращаемого текста соответствует ожидаемому значению')
     def test_transition_main(self, driver):
-        driver.get(order_page_url)
-        transition_main = OrderPageScooter(driver)
+        transition_main = OrderPageScooter(driver, order_page_url)
         transition_main.check_transition_main()
 
-        assert transition_main.check_text_main() == 'Привезём его прямо к вашей двери,\nа когда накатаетесь — заберём'
+        assert transition_main.check_text_main() == actual_text

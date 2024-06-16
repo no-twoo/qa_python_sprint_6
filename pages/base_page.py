@@ -5,9 +5,10 @@ import allure
 
 class BasePage:
 
-    @allure.step('Открываем браузер Firefox')
-    def __init__(self, driver):
+    @allure.step('Открываем браузер Firefox и передаем url')
+    def __init__(self, driver, url):
         self.driver = driver
+        self.driver.get(url)
 
     @allure.step('Метод форматирует локатор, предоставляя возможность добавлять в конец локатора необходимое число')
     def format_locators(self, locator_1, num):
@@ -41,3 +42,11 @@ class BasePage:
     def scroll_to_element(self, locator):
         element = self.find_element_with_wait(locator)
         self.driver.execute_script("arguments[0].scrollIntoView(true);", element)
+
+    @allure.step('Получаем ссылку на страницу')
+    def current_url_page(self):
+        return self.driver.current_url
+
+    @allure.step('Переходим на соседнюю страницу')
+    def switch_to_page(self):
+        self.driver.switch_to.window(self.driver.window_handles[1])

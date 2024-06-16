@@ -11,8 +11,7 @@ class TransitionDzen(BasePage):
 
     @allure.step('Переходим на страницу Яндекса и возвращаем значение url')
     def check_main_yandex(self):
-        self.driver.switch_to.window(self.driver.window_handles[1])
+        self.switch_to_page()
         self.find_element_with_wait(TestDzenLocators.search_main_yandex)
-        current_url = self.driver.current_url
 
-        return current_url
+        return self.current_url_page()

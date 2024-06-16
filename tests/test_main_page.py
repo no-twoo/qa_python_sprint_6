@@ -24,8 +24,7 @@ class TestMainPage:
         ]
     )
     def test_question_and_answer(self, driver, num, result):
-        driver.get(main_page_url)
-        main_page = MainPage(driver)
+        main_page = MainPage(driver, main_page_url)
         actual_result = main_page.get_answer_text(num)
 
         assert actual_result == result
@@ -33,15 +32,13 @@ class TestMainPage:
     @allure.title('Проверка перехода по кнопке вверху страницы на страницу оформления заказа')
     @allure.description('Тест проверяет, что значение url соответствует ожидаемому значению')
     def test_button_order_header(self, driver):
-        driver.get(main_page_url)
-        button_order_header = MainPage(driver)
+        button_order_header = MainPage(driver, main_page_url)
 
-        assert button_order_header.check_order_header() == 'https://qa-scooter.praktikum-services.ru/order'
+        assert button_order_header.check_order_header() == order_page_url
 
     @allure.title('Проверка перехода по кнопке внизу страницы на страницу оформления заказа')
     @allure.description('Тест проверяет, что значение url соответствует ожидаемому значению')
     def test_button_order_footer(self, driver):
-        driver.get(main_page_url)
-        button_order_footer = MainPage(driver)
+        button_order_footer = MainPage(driver, main_page_url)
 
-        assert button_order_footer.check_order_header() == 'https://qa-scooter.praktikum-services.ru/order'
+        assert button_order_footer.check_order_header() == order_page_url

@@ -20,11 +20,11 @@ class MainPage(BasePage):
     def check_order_header(self):
         self.click_to_element(TestMainLocators.create_order_button_header)
 
-        return self.driver.current_url
+        return self.current_url_page()
 
     @allure.step('Кликаем по кнопке "Заказать" внизу страницы')
     def check_order_footer(self):
         self.scroll_to_element(TestMainLocators.create_order_button_footer)
         self.click_to_element(TestMainLocators.create_order_button_footer)
 
-        return self.driver.current_url
+        return self.current_url_page()
